@@ -17,8 +17,8 @@ export class User {
   @Column({ type: 'varchar', length: 50, nullable: false })
   email: string;
 
-  @Column({ type: 'int',  nullable: false })
-  phoneNumber: number;
+  @Column({ type: 'varchar', nullable: false })
+  phoneNumber: string;
 
   @Column({ type: 'varchar', length: 80, nullable: false })
   password: string;
@@ -28,9 +28,6 @@ export class User {
 
   @Column({ type: 'varchar', length: 50, nullable: false })
   photo: string;
-
-  @Column({ type: 'date',  nullable: false })
-  Date: Date;
 
   @OneToMany(() => Car, (cars) => cars.owner)
   cars: Car;
