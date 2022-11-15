@@ -4,8 +4,7 @@ import { useMutation } from "react-query";
 import loginUser from "../../app/Modules/api/user-login";
 
 export default function Login() {
-  const [user, setUser] = useState({ email: "", password: "" });
-  const [logged, setLogged] = useState();
+  const [admin, setAdmin] = useState({ email: "", password: "" });
 
   const { mutate, isLoading } = useMutation(loginUser, {
     onSuccess: () => {
@@ -59,7 +58,7 @@ export default function Login() {
               id=""
               placeholder="Email Address"
               onChange={(event) =>
-                setUser((prevState) => {
+                setAdmin((prevState) => {
                   return { ...prevState, email: event.target.value };
                 })
               }
@@ -85,7 +84,7 @@ export default function Login() {
               name=""
               id=""
               onChange={(event) =>
-                setUser((prevState) => {
+                setAdmin((prevState) => {
                   return { ...prevState, password: event.target.value };
                 })
               }
@@ -95,15 +94,9 @@ export default function Login() {
             href="/admin/UserManagement"
             type="submit"
             className="block w-full dark:bg-gray-900 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
-            onClick={() => onSubmit(user)}
+            onClick={() => onSubmit(admin)}
           >
             Login
-          </Link>
-          <Link
-            href="admin-loggin"
-            className="text-gray-900  ml-2 hover:text-blue-500 cursor-pointer"
-          >
-            Are You An Admin??
           </Link>
         </form>
       </div>

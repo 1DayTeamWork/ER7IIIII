@@ -7,11 +7,8 @@ export class UserDto {
   @IsEmail()
   email: string;
 
-  @IsEmail()
-  phoneNumber: number;
-
-  @IsDate()
-  date: string;
+  @IsNotEmpty()
+  phoneNumber: string;
 
   @IsNotEmpty()
   password: string;
