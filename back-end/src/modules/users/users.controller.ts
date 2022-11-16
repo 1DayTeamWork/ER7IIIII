@@ -33,13 +33,13 @@ export class UsersController {
     return this.service.getOneUser(id);
   }
 
-  @UseGuards(AuthGuard('jwtAdmin'))
+  // @UseGuards(AuthGuard('jwtAdmin'))
   @Put('/:id')
   updateUser(@Param('id') id: string, @Body() body: UserDto) {
     return this.service.updateUser(id, body);
   }
 
-  @UseGuards(AuthGuard('jwtAdmin'))
+  // @UseGuards(AuthGuard('jwtAdmin'))
   @Delete('/:id')
   deleteBrand(@Param('id') id: string) {
     return this.service.deleteUser(id);

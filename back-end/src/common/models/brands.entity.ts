@@ -13,7 +13,7 @@ export class Brand {
   @Column({ type: 'varchar', length: 50, nullable: false })
   name: string;
 
-  @Column({ type: 'varchar', length: 50, nullable: false })
+  @Column({ type: 'varchar', nullable: false })
   logo: string;
 
   @OneToMany(() => Car, (cars) => cars.brand)

@@ -28,19 +28,19 @@ export class BrandsController {
     return this.service.getAll();
   }
 
-  @UseGuards(AuthGuard('jwtAdmin'))
+  // @UseGuards(AuthGuard('jwtAdmin'))
   @Get('/:id')
   getOneBrand(@Param('id') id: string) {
     return this.service.getOneBrand(id);
   }
 
-  @UseGuards(AuthGuard('jwtAdmin'))
+  // @UseGuards(AuthGuard('jwtAdmin'))
   @Put('/:id')
   updateBrand(@Param('id') id: string, @Body() body: BrandDto) {
     return this.service.updateBrand(id, body);
   }
 
-  @UseGuards(AuthGuard('jwtAdmin'))
+  // @UseGuards(AuthGuard('jwtAdmin'))
   @Delete('/:id')
   deleteBrand(@Param('id') id: string) {
     return this.service.deleteBrand(id);

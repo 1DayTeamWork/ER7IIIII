@@ -5,8 +5,8 @@ export interface userInfoData {
   fullName?: string;
   email?: string;
   password?: string;
-  phoneNumber: number;
+  phoneNumber: string;
   role?: string;
-  photo: string;
+  photo?: string;
   cars?: Car;
 }
