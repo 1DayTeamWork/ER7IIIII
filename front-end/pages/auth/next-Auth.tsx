@@ -29,17 +29,7 @@ const authOptions: NextAuthOptions = {
   ],
 
   pages: {
-    // signIn: '/auth/signin', // Displays signin buttons
-    // signOut: '/auth/signout', // Displays form with sign out button
-    // error: '/auth/error', // Error code passed in query string as ?error=
-    // verifyRequest: '/auth/verify-request', // Used for check email page
-    newUser: "/bully", // If set, new users will be directed here on first sign in
-  },
-
-  events: {
-    signIn: ({ user, account, profile, isNewUser }) => {
-      console.log(`isNewUser: ${JSON.stringify(isNewUser)}`);
-    },
+    newUser: "/auth/LoginPage", // If set, new users will be directed here on first sign in
   },
   debug: false,
 };
