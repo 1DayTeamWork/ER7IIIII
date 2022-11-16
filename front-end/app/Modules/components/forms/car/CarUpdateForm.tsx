@@ -9,10 +9,10 @@ export default function CarUpdateForm(props: any) {
       id="authentication-modal"
       tabIndex={-1}
       aria-hidden="true"
-      className=" overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full "
+      className=" overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full flex justify-center flex items-center "
     >
       <div className="relative w-full max-w-md h-full md:h-auto">
-        <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div className="relative bg-white rounded-lg shadow dark:bg-bg-transparent">
           <button
             type="button"
             className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
@@ -24,6 +24,9 @@ export default function CarUpdateForm(props: any) {
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
+              onClick={() => {
+                props.hide(false);
+              }}
             >
               <path
                 fill-rule="evenodd"
