@@ -18,11 +18,20 @@ export class CarsService {
     return this.carRepo.find();
   }
 
+  getAllById(id: any) {
+    return this.carRepo.find({
+      where: {
+        owner: id,
+      },
+      loadRelationIds: true,
+    });
+  }
+
   getOneCar(id: string) {
     return this.carRepo.findOne({ where: { id: id } });
   }
 
-   updateCar(id: string, body: Partial<CarDto>) {
+  updateCar(id: string, body: Partial<CarDto>) {
     return this.carRepo.update(id, body);
   }
 
