@@ -17,7 +17,7 @@ export default function UserManagement() {
   if (error) return "An error has occurred: ";
 
   if (data) {
-    console.log(data);
+    
     return (
       <div className="flex flex-col h-screen justify-between ">
         <NavBarAdmin />

@@ -4,7 +4,7 @@ export const config: TypeOrmModuleOptions = {
   host: 'localhost',
   port: 5432,
   username: 'postgres',
-  password: '12345',
+  password: 'root',
   database: 'onboarding',
   entities: [__dirname + './../common/models/*.entity{.ts,.js}'],
   logging: true,

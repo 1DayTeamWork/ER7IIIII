@@ -33,7 +33,4 @@ export class User {
   @OneToMany(() => Car, (cars) => cars.owner)
   cars: Car;
 
-  /**
-   *
-   */
 }

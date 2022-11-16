@@ -13,7 +13,6 @@ async function bootstrap() {
   
   app.setGlobalPrefix('api');
   app.useGlobalFilters(new ValidationFilter());
-  console.log(__dirname);
   app.useGlobalPipes(
     new ValidationPipe({
       skipMissingProperties: false,
