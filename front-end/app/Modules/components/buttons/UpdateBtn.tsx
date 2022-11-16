@@ -38,7 +38,7 @@ const UpdateBtn = (props: any) => {
             <span className="sr-only">Add</span>
           </button>
         </div>
-        {hide ? <CarUpdateForm car={props.car} /> : <></>}
+        {hide ? <CarUpdateForm hide={setHide} car={props.car} /> : <></>}
       </>
     </div>
   );

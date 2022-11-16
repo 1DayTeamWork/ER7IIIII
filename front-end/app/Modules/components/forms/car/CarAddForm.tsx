@@ -11,7 +11,7 @@ export default function CarAddForm(props: any) {
       id="authentication-modal"
       tabIndex={-1}
       aria-hidden="true"
-      className=" overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full "
+      className=" overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full flex justify-center items-center  "
     >
       <div className="relative w-full max-w-md h-full md:h-auto">
         <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -26,6 +26,9 @@ export default function CarAddForm(props: any) {
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
+              onClick={() => {
+                props.hide(false);
+              }}
             >
               <path
                 fill-rule="evenodd"
