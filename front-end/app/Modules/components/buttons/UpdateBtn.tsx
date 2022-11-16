@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import BrandAddForm from "../forms/brand/BrandAddForm";
 
-const UpdateBtn = () => {
+import CarUpdateForm from "../forms/car/CarUpdateForm";
+
+const UpdateBtn = (props: any) => {
   const [hide, setHide] = useState(false);
 
   const handleHideChange = (e: any) => {
@@ -37,7 +38,7 @@ const UpdateBtn = () => {
             <span className="sr-only">Add</span>
           </button>
         </div>
-        {hide ? <BrandAddForm /> : <></>}
+        {hide ? <CarUpdateForm car={props.car} /> : <></>}
       </>
     </div>
   );
