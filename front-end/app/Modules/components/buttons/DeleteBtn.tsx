@@ -1,6 +1,14 @@
-export default function DeleteBtn() {
+import axios from "axios";
+
+export default function DeleteBtn(props: any) {
   return (
     <button
+      onClick={() => {
+        axios
+          .delete(`http://localhost:3000/api/cars/${props.car}`)
+          .then(() => alert("deleted"))
+          .catch(() => alert("error"));
+      }}
       type="button"
       className="text-red-700 border border-red-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-red-700 dark:text-red-700 dark:hover:text-white dark:focus:ring-blue-800"
     >
@@ -18,7 +26,7 @@ export default function DeleteBtn() {
           d="M6 18L18 6M6 6l12 12"
         ></path>
       </svg>
-      <span className="sr-only">Add</span>
+      <span className="sr-only"></span>
     </button>
   );
 }

@@ -18,8 +18,8 @@ export default function CarList(props: any) {
           <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
             {props.car.serialNum}
           </div>
-          <UpdateBtn />
-          <DeleteBtn />
+          <UpdateBtn car={props.car.id} />
+          <DeleteBtn car={props.car.id} />
         </div>
       </li>
     </ul>
