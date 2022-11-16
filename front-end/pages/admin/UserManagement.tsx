@@ -7,7 +7,7 @@ import { useQuery } from "react-query";
 export default function UserManagement() {
   const { isLoading, error, data } = useQuery({
     queryFn: () =>
-      fetch("http://localhost:3000/users/all").then((res) => res.json()),
+      fetch("http://localhost:3000/api/users/").then((res) => res.json()),
   });
 
   if (isLoading) return "Loading...";
@@ -21,7 +21,6 @@ export default function UserManagement() {
         <NavBarAdmin />
         <div className="flex flex-col items-center w-screen justify-center">
           {data.map((user: any) => {
-            console.log(user);
             return <UserBox user={user} />;
           })}
           <AddBtn />

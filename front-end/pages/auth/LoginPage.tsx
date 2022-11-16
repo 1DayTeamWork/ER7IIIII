@@ -67,7 +67,7 @@ export default function Login() {
             />
           </div>
           <Link
-            href="/admin/UserManagement"
+            href="/user/homePage"
             type="submit"
             className="block w-full dark:bg-gray-900 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
           >
