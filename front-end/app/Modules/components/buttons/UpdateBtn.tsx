@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import BrandUpdateForm from "../forms/brand/BrandUpdateForm";
 
 import CarUpdateForm from "../forms/car/CarUpdateForm";
+import UserUpdateForm from "../forms/user/UserUpdateForm";
 
 const UpdateBtn = (props: any) => {
-  const [hide, setHide] = useState(false);
+  const [hide, setHide] = useState('');
 
   const handleHideChange = (e: any) => {
     e.preventDefault();
-    return setHide(!hide);
+    return setHide(props.type);
   };
 
   return (
@@ -38,7 +40,9 @@ const UpdateBtn = (props: any) => {
             <span className="sr-only">Add</span>
           </button>
         </div>
-        {hide ? <CarUpdateForm car={props.car} /> : <></>}
+        {hide === 'users' ? <UserUpdateForm hide={setHide} user={props.user} /> : <></>}
+        {hide === 'cars' ? <CarUpdateForm hide={setHide} car={props.car}/> : <></>}
+        {hide === 'brands' ? <BrandUpdateForm hide={setHide} brand={props.brand}/> : <></>}
       </>
     </div>
   );

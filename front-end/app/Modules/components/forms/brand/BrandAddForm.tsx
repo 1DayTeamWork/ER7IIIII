@@ -1,48 +1,93 @@
+import React, { useState } from "react";
+import axios from "axios";
 export default function BrandAddForm(props: any) {
+  const [name,setName]=useState("");
+  const [logo,setLogo]=useState("")
   return (
     <div
-      className="modal fade fixed top-0 left-0  w-1/2 h-1/2 outline-none  overflow-y-auto"
-      id="staticBackdrop"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabIndex={-1}
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog relative w-auto pointer-events-none">
-        <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-          <div className="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-            <h5
-              className="text-xl font-medium leading-normal text-gray-800"
-              id="exampleModalLabel"
-            >
-              Modal title
-            </h5>
+    id="authentication-modal"
+    tabIndex={-1}
+    aria-hidden="true"
+    className=" overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full flex justify-center items-center"
+  >
+    <div className="relative w-full max-w-md h-full md:h-auto">
+      <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <button
+          type="button"
+          className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+          data-modal-toggle="authentication-modal"
+        >
+          <svg
+            aria-hidden="true"
+            className="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          onClick={()=>props.show(false)}>
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <span className="sr-only">Close modal</span>
+        </button>
+        <div className="py-6 px-6 lg:px-8">
+          <form className="space-y-6" action="#">
+            <div>
+              <label
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Brand Name
+              </label>
+              <input
+                type="text"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="Brand Name"
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+               Logo
+              </label>
+              <input
+                type="text"
+                placeholder="Logo"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                onChange={(e) => {
+                  setLogo(e.target.value);
+                }}
+                required
+              />
+            </div>
+           
+            <div className="flex justify-between">
+              <div className="flex items-start">
+                <div className="flex items-center h-5"></div>
+              </div>
+            </div>
             <button
-              type="button"
-              className="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div className="modal-body relative p-4">...</div>
-          <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
-            <button
-              type="button"
-              className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-              data-bs-dismiss="modal"
+              type="submit"
+              className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              onClick={() => {
+                let newBrand = {
+                 name:name,
+                 logo:logo
+                }
+                axios
+                  .post("http://localhost:3000/api/brands/", newBrand)
+                  .then(() => alert("done"))
+                  .catch(() => alert("error"));
+              }}
             >
-              Close
+              Submit
             </button>
-            <button
-              type="button"
-              className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
-            >
-              Understood
-            </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
+  </div>
   );
 }

@@ -10,7 +10,7 @@ import NoCar from "../../app/Modules/components/Table/Car/No-Car";
 export default function BrandManagement() {
   const { isLoading, error, data } = useQuery({
     queryFn: () =>
-      fetch("http://localhost:3000/api/users").then((res) => res.json()),
+      fetch("http://localhost:3000/api/cars").then((res) => res.json()),
   });
   if (isLoading) return "Loading...";
 
@@ -27,14 +27,14 @@ export default function BrandManagement() {
           <CreateCarBtn />
         </div>
 
-        {data.length > 0 ? (
+        {data.length < 0 ? (
           <NoCar />
         ) : (
-          <div className='flex flex-col items-center w-screen justify-center'>
-            {data.map((car: any, i: any) => {
-              return <CarTable car={car} key={i} />;
-            })}
-          </div>
+        <div className='flex flex-col items-center w-screen justify-center'>
+          {data.map((car: any, i: any) => {
+            return <CarTable car={car} key={i} />;
+          })}
+        </div>
         )}
 
         <Footer />

@@ -1,11 +1,13 @@
 import React from "react";
+import DeleteBtn from "../../buttons/DeleteBtn";
+import UpdateBtn from "../../buttons/UpdateBtn";
 
 const BrandTable = (props: any) => {
   return (
     <div>
-        <div className='bg-white p-8 rounded-md w-full'>
-          <div className=' flex items-center justify-between pb-6'>
-            <div className='flex items-center justify-between'></div>
+        <div className='bg-white rounded-md w-full'>
+          <div className=' flex justify-between pb-6'>
+            <div className='flex justify-between'></div>
           </div>
           <div>
             <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
@@ -36,6 +38,8 @@ const BrandTable = (props: any) => {
                           </div>
                         </div>
                       </td>
+                      <UpdateBtn type={'brands'} brand={props.brand}/>
+              <DeleteBtn type={'brands'} brand={props.brand}/>
                     </tr>
                   </tbody>
                 </table>
