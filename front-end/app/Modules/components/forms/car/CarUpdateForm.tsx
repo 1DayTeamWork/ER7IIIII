@@ -5,7 +5,7 @@ export default function CarUpdateForm(props: any) {
   const [model, setModel] = useState("");
   const [brandName, setBrandName] = useState("");
   const [serialNum, setSerialNum] = useState("");
-  
+
   return (
     <div
       id='authentication-modal'

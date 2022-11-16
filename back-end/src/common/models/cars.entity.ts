@@ -14,9 +14,6 @@ export class Car {
   @Column({ type: 'varchar', length: 50, nullable: false })
   model: string;
 
-  // @Column({ type: 'date', nullable: false })
-  // date: string;
-
   @Column({ type: 'varchar', nullable: false })
   brandName: string;
 
