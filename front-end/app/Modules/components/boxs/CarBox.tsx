@@ -1,7 +1,7 @@
 import DeleteBtn from "../buttons/DeleteBtn";
 import UpdateBtn from "../buttons/UpdateBtn";
 
-export default function CarBox() {
+export default function CarBox(props: any) {
   return (
     <div className="flex  max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 justify-center items-center">
       <a href="#">

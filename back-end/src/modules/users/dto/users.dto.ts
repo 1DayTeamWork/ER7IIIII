@@ -8,6 +8,7 @@ export class UserDto {
   email: string;
 
   @IsNotEmpty()
+
   phoneNumber: string;
 
   @IsNotEmpty()
