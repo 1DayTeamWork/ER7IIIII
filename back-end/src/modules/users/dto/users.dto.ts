@@ -8,15 +8,14 @@ export class UserDto {
   email: string;
 
   @IsNotEmpty()
-
   phoneNumber: string;
 
   @IsNotEmpty()
   password: string;
 
-  @IsNotEmpty()
+  // @IsNotEmpty()
   photo: string;
 
-  @IsNotEmpty()
+  // @IsNotEmpty()
   role: string;
 }
