@@ -1,9 +1,9 @@
 import NavBarAdmin from "../../app/commun/layout/admin/NavBarAdmin";
 import Footer from "../../app/commun/layout/admin/FooterAdmin";
-import UserBox from "../../app/Modules/components/boxs/UserBox";
-import AddBtn from "../../app/Modules/components/buttons/AddBtn";
 import { useQuery } from "react-query";
 import UserTable from "../../app/Modules/components/Table/User/User-Table";
+import CreateUserBtn from "../../app/Modules/components/buttons/Create-User-Btn";
+import Search from "../../app/Modules/components/buttons/Search";
 
 export default function UserManagement() {
   const { isLoading, error, data } = useQuery({
@@ -16,19 +16,22 @@ export default function UserManagement() {
 
   if (data) {
     return (
-      <div className="flex flex-col h-screen justify-between ">
+      <div className='flex flex-col h-screen justify-between '>
         <NavBarAdmin />
-        <div className="flex flex-col items-center w-screen justify-center">
+        <div className='flex flex-col-reverse'>
+          <Search />
+        </div>
+        <div className='flex col flex-row-reverse'>
+          <CreateUserBtn />
+        </div>
+        <div className='flex flex-col items-center w-screen justify-center'>
           {data.map((user: any, i: any) => {
             console.log(user);
-            return <UserTable user={user} key={i} />
-            // <UserBox user={user} key={i}/>;
+            return <UserTable user={user} key={i} />;
           })}
-          {/* <AddBtn /> */}
         </div>
         <Footer />
       </div>
     );
   }
 }
-

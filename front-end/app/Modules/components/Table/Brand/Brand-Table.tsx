@@ -1,6 +1,6 @@
 import React from "react";
 
-const CarTable = (props: any) => {
+const BrandTable = (props: any) => {
   return (
     <div>
         <div className='bg-white p-8 rounded-md w-full'>
@@ -14,14 +14,7 @@ const CarTable = (props: any) => {
                   <thead>
                     <tr>
                       <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider'>
-                        model
-                      </th>
-                      <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider'>
-                        brand Name
-                      </th>
-
-                      <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider'>
-                        Serial Number
+                        Name
                       </th>
                     </tr>
                   </thead>
@@ -32,26 +25,16 @@ const CarTable = (props: any) => {
                           <div className='flex-shrink-0 w-10 h-10'>
                             <img
                               className='w-full h-full rounded-full'
-                              src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80'
+                              src={props.brand.logo}
                               alt=''
                             />
                           </div>
                           <div className='ml-3'>
                             <p className='text-gray-900 whitespace-no-wrap'>
-                              {props.car.model}
+                              {props.brand.name}
                             </p>
                           </div>
                         </div>
-                      </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                        <p className='text-gray-900 whitespace-no-wrap'>
-                          {props.car.brandName}
-                        </p>
-                      </td>
-                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                        <p className='text-gray-900 whitespace-no-wrap'>
-                          {props.car.serialNum}
-                        </p>
                       </td>
                     </tr>
                   </tbody>
@@ -64,4 +47,4 @@ const CarTable = (props: any) => {
   );
 };
 
-export default CarTable;
+export default BrandTable;
