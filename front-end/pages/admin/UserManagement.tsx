@@ -3,6 +3,8 @@ import Footer from "../../app/commun/layout/admin/FooterAdmin";
 import UserBox from "../../app/Modules/components/boxs/UserBox";
 import AddBtn from "../../app/Modules/components/buttons/AddBtn";
 import { useQuery } from "react-query";
+import { NextPage } from "next";
+import { useSession } from "next-auth/react";
 
 export default function UserManagement() {
   const { isLoading, error, data } = useQuery({
@@ -15,7 +17,7 @@ export default function UserManagement() {
   if (error) return "An error has occurred: ";
 
   if (data) {
-    console.log(data);
+    
     return (
       <div className="flex flex-col h-screen justify-between ">
         <NavBarAdmin />

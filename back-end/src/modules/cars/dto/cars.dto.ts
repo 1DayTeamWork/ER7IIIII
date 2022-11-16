@@ -10,6 +10,4 @@ export class CarDto {
   @IsNotEmpty()
   serialNum: string;
 
-  // @IsDate()
-  // date: string;
 }

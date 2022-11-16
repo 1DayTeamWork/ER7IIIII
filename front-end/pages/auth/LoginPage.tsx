@@ -2,13 +2,16 @@ import Link from "next/link";
 import { useState } from "react";
 import { useMutation } from "react-query";
 import loginUser from "../../app/Modules/api/user-login";
-
+import { signIn } from "next-auth/react";
+import { redirect } from "next/dist/server/api-utils";
 export default function Login() {
   const [user, setUser] = useState({ email: "", password: "" });
   const [logged, setLogged] = useState();
 
   const { mutate, isLoading } = useMutation(loginUser, {
-    onSuccess: () => {
+    onSuccess: (data) => {
+      console.log("data", data);
+
       const message = "Welcome Back";
       alert(message);
     },
@@ -19,6 +22,11 @@ export default function Login() {
 
   const onSubmit = (data: any) => {
     mutate(data);
+    signIn("credentials", {
+      email: user.email,
+      password: user.password,
+      redirect: false,
+    });
   };
 
   return (
@@ -100,7 +108,7 @@ export default function Login() {
             Login
           </Link>
           <Link
-            href="admin-loggin"
+            href="homePage"
             className="text-gray-900  ml-2 hover:text-blue-500 cursor-pointer"
           >
             Are You An Admin??
