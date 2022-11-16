@@ -15,13 +15,12 @@ export default function HomePage(props: any) {
   if (error) return "An error has occurred: ";
 
   if (data) {
-    console.log(data);
     return (
       <div className="flex flex-col h-screen justify-between ">
         <NavBarUser />
         <div className="flex flex-col items-center w-screen justify-center">
-          {data.map((car: any) => {
-            return <CarList car={car} />;
+          {data.map((car: any, i: any) => {
+            return <CarList car={car} key={i} />;
           })}
           <AddBtn type={"car"} user={props.id} />
         </div>

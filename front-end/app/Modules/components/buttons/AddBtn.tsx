@@ -35,7 +35,7 @@ export default function AddBtn(props: any) {
         </svg>
         <span className="sr-only">Add</span>
       </button>
-      {hide === "car" ? <CarAddForm user={props.user} /> : <></>}
+      {hide === "car" ? <CarAddForm hide={setHide} user={props.user} /> : <></>}
       {hide === "user" ? <UserAddForm /> : <></>}
       {hide === "brand" ? <BrandAddForm /> : <></>}
     </>

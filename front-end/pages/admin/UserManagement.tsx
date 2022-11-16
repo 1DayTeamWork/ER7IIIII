@@ -26,7 +26,6 @@ export default function UserManagement() {
         </div>
         <div className='flex flex-col items-center w-screen justify-center'>
           {data.map((user: any, i: any) => {
-            console.log(user);
             return <UserTable user={user} key={i} />;
           })}
         </div>

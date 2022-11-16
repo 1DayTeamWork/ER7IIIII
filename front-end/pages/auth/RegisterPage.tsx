@@ -26,8 +26,6 @@ export default function Register() {
   });
 
   const onSubmit = (data: UserRegister) => {
-    console.log(data);
-    
     mutate(data);
   };
   return (

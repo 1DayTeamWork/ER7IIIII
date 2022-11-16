@@ -33,7 +33,6 @@ export default function BrandManagement() {
         ) : ( */}
           <div className='flex flex-col items-center w-screen justify-center'>
             {data.map((brand: any, i: any) => {
-              console.log(brand);
               return <BrandTable brand={brand} key={i} />;
             })}
           </div>
