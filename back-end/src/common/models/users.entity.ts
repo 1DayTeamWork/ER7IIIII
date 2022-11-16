@@ -26,9 +26,8 @@ export class User {
   @Column({ type: 'varchar', length: 50, nullable: false })
   role: string;
 
-  @Column({ type: 'varchar', nullable: false })
+  @Column({ type: 'varchar', nullable: true })
   photo: string;
-
 
   @OneToMany(() => Car, (cars) => cars.owner)
   cars: Car;

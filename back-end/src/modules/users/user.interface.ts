@@ -7,6 +7,6 @@ export interface userInfoData {
   password?: string;
   phoneNumber: string;
   role?: string;
-  photo: string;
+  photo?: string;
   cars?: Car;
 }
